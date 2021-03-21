@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+
+    <div class="d-flex talk-title  justify-content-center">
+      <p class="h2 my-5">你想對誰說幹話</p>
+    </div>
+
+    <form method="POST" action="/">
+      <div class="form-group form-row">
+        <div class="row justify-content-center g-3">
+          {{#each targets}}
+          <div class="col">
+            <div class="card">
+              <div class="card-body shadow-sm">
+                <img src="{{this.image}}" class="img-fluid" alt="{{this.name}}">
+                <p class="p-0 mt-2 mb-0 text-black-50 text-center">
+                  <input type="radio" name="target" id="{{this.title}}" value="{{this.title}}" {{#if
+                    checked}}checked{{/if}}>
+                  <label for="{{this.title}}">{{this.name}}</label>
+                </p>
+              </div>
+            </div>
+
+          </div>
+          {{/each}}
+
+        </div>
+        <div class="d-flex my-4 justify-content-center">
+          <div class="pe-3">
+            <button type="submit" class="btn btn-green">產生幹話</button>
+          </div>
+          <div class="flex-fill">
+            <textarea class="form-control" id="exampleFormControlTextarea1"
+              rows="3">{{#if trash_talk}}{{trash_talk}}吧！{{/if}}</textarea>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
