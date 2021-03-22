@@ -5,6 +5,11 @@ function sample(phrase) {
 }
 
 function generateTrashTalk(targetIndex) {
+  // return error
+  if (typeof targetIndex === 'undefined') {
+    return '請選擇一個對象'
+  }
+
   const targetPeople = {
     engineer: '工程師',
     designer: '設計師',
@@ -18,18 +23,13 @@ function generateTrashTalk(targetIndex) {
 
   const phrase = ['很簡單', '很容易', '很快', '很正常']
 
-  // return error
-  if (typeof targetIndex === 'undefined') {
-    return '請選擇一個對象'
-  }
-
   let collection = []
 
-  collection.push(
+  collection = [
     targetPeople[targetIndex],
     sample(task[targetIndex]),
-    sample(phrase)
-  )
+    sample(phrase),
+  ]
 
   return '身為一個' + collection.join('，')
 }
