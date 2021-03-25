@@ -15,12 +15,11 @@
                 <img src="{{this.image}}" class="img-fluid" alt="{{this.name}}">
                 <p class="p-0 mt-2 mb-0 text-black-50 text-center">
                   <input type="radio" name="target" id="{{this.title}}" value="{{this.title}}" {{#if
-                    checked}}checked{{/if}}>
+                    isTarget}}checked{{/if}}>
                   <label for="{{this.title}}">{{this.name}}</label>
                 </p>
               </div>
             </div>
-
           </div>
           {{/each}}
 

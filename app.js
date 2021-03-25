@@ -27,18 +27,21 @@ app.post('/', (req, res) => {
   const options = req.body
   const trash_talk = generateTrashTalk(req.body.target)
 
-  let targetChecked = targetList.results.map((target, index, arr) => {
-    arr[index].checked = false
-    if (target.title === req.body.target) {
-      arr[index].checked = true
-    }
-    return arr[index]
+  let targetChecked = []
+
+  targetList.results.forEach(function (arr) {
+    let isTarget = arr.title === req.body.target ? true : false
+    targetChecked.push({
+      title: arr.title,
+      name: arr.name,
+      image: arr.image,
+      isTarget: isTarget,
+    })
   })
 
   res.render('index', {
     targets: targetChecked,
     trash_talk: trash_talk,
-    options: options,
   })
 })
 
